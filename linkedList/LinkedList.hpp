@@ -45,20 +45,29 @@ bool LinkedList<T>::search(T value) const
 	/** TODO
 		Fix this method
 	*/
-int count=0;
-while(count!=m_size)
+if(temp==nullptr)
 {
-	if(value==temp->getValue())
-	{
-		isFound==true;
-	}
-	else
-	{
-		temp=temp->getNext();
-		count++;
-	}
+	isFound=false;
 }
+else
+{
+	if(!isEmpty())
+	{
+		while(temp!=nullptr)
+		{
+			if(value==temp->getValue())
+			{
+				isFound=true;
+				break;
+			}
+			else
+			{
+				temp=temp->getNext();
+			}
+		}
+	}
 
+}
 	return(isFound);
 }
 
@@ -120,23 +129,7 @@ bool LinkedList<T>::removeBack()
 	/** TODO
 		Fix this method
 	*/
-	if(!isEmpty())
-	{
-		lastNode= m_front;
-		secondintoLast=m_front;
-		for(int i=1;i<m_front;i++)
-		{
-		  if(i=m_front-1)
-			{
-				secondintoLast=lastNode;
-			}
-			lastNode=lastNode->getNext();
-		}
-		m_front=secondintoLast;
-		delete lastNode;
-		m_size--;
 
-	}
 
 	return(isRemoved);
 }
